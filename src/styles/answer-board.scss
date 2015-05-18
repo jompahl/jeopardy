@@ -1,0 +1,17 @@
+@import "utils";
+
+.AnswerBoard {	
+	@extend .u-group;
+	width: 100%;
+}
+
+.PlayerControls {
+	display: flex;
+	flex-direction: row;
+	margin: 0 auto;
+	width: 60%;
+}
+
+.PlayerControl {
+	flex: 1;
+}

@@ -1,0 +1,37 @@
+@import "settings";
+
+.Player {
+	flex: 1;
+	margin-right: 10px;
+	text-align: center;
+
+	&:first-of-type {
+		margin-left: 10px;
+	}
+}
+
+.Player-screen {
+	background: white;
+	min-width: 120px;
+	max-width: 200px;
+	margin: 0 auto;
+	width: 80%;
+}
+
+.Player-name {
+	background: #4667C5;
+	color: white;
+	font-family: "Gloria Hallelujah";
+	font-family: "Indie Flower";
+	font-family: "Rock Salt";
+	padding: 5px 0;
+}
+
+.Player-score {
+	background: $jeopardy-blue;
+	color: #fefefe;
+	font-size: 18px;
+	font-weight: 600;
+	height: 40px;
+	line-height: 40px;
+}

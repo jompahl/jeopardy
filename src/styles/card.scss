@@ -1,0 +1,35 @@
+@import "settings";
+
+.Card {
+	align-content: center;
+	background: $jeopardy-blue;
+	display: flex;
+	flex-grow: 1;
+	flex-direction:column;
+	justify-content: center;
+	position: relative;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	
+	&:not(:first-of-type) {
+		border-top: 5px solid $board-bg;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.Card-front {
+	color: #FFFC38;
+	font-weight: 700;
+	font-size: 38px;
+	width: 100%;
+}
+
+.Card.is-picked {
+	.Card-front {
+		opacity: 0;
+	}
+}

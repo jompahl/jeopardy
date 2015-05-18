@@ -1,0 +1,129 @@
+var categories = [
+	{
+		title: "Blandat",
+		cards: [
+			{
+				question: "Bokstavera ordet färg med brittisk stavning",
+				answer: "Colour"
+			},
+			{
+				question: "I vilken land hålls Eurovision Song Contest i år?",
+				answer: "Österrike"
+			},
+			{
+				question: "Nämn fem av de sju nya världens underverk",
+				answer: "Taj Mahal, Colosseum, Cristo Redentor, Chichen Itza, Kinesiska muren, Machu Picchu & Petra "
+			},
+			{
+				question: "Vilket årtionde antogs tryckfrihetsförordningen?",
+				answer: "40-talet"
+			},
+			{
+				question: "Vilket århundrade formades en svensk riksdag",
+				answer: "1500-talet"
+			}
+		]
+	},
+	{
+		title: "Fotboll",
+		cards: [
+			{
+				question: "Vilken land vann VM 1982",
+				answer: "Argentina"
+			},
+			{
+				question: "Vilka tre har gjort flest matcher i svenska landslaget?",
+				answer: "Taco, Ravelli, Isaksson"
+			},
+			{
+				question: "Vad heter den enda obesegrade Arsenalmanagern?",
+				answer: "Pat Rice"
+			},
+			{
+				question: "Vad heter Schalke 04 arena och var ligger den?",
+				answer: "Veltins-Arena, Gelsenkirchen"
+			},
+			{
+				question: "Vilka är mininmum- och maximumgränsen i meter (bredd och längd) för en fotbollsplan?",
+				answer: "Bredd = 45-90m, läng = 90-120m"
+			}
+		]
+	},
+	{
+		title: "Film",
+		cards: [
+			{
+				question: "Nämn två av de tre skådespelarnas namn som spelar potentiell pappa i Mamma Mia?",
+				answer: "Stellan Skarsgård, Pierce Brosnan & Colin Firth"
+			},
+			{
+				question: "Vad kallas karaktärerna i Top Gun?",
+				answer: "Goose och Maverick"
+			},
+			{
+				question: "Vem spelar Commodus i Gladiator?",
+				answer: "Joaquin Phoenix"
+			},
+			{
+				question: "Vilken film har genererat mest pengar någonsin?",
+				answer: "Avatar"
+			},
+			{
+				question: "Ranka filmerna efter vilket år dem kom ut (äldst först) - Titanic, The Shining, Seven, American Beauty & Gökboet",
+				answer: "Gökboet (75), The Shining (80) Seven (95) Titanic (97), American Beauty (99)"
+			}
+		]
+	},
+	{
+		title: "Mat & dryck",
+		cards: [
+			{
+				question: "Vilken alkoholhalt (procent) har en standard Sofiero?",
+				answer: "5,0%"
+			},
+			{
+				question: "Hur många bröd respektive hamburgare innehåller en Big Mac?",
+				answer: "3 bröd och 2 hamburgare"
+			},
+			{
+				question: "Vilket land importerar Sverige mest livsmedel från?",
+				answer: "Danmark"
+			},
+			{
+				question: "Var startade potatisens resa för 8000 år sedan (vilken världsdel)?",
+				answer: "Anderna (Sydamerika)"
+			},
+			{
+				question: "Vilken är huvudingrediensen i en Dry Martini?",
+				answer: "Gin"
+			}
+		]
+	},
+	{
+		title: "Människokroppen",
+		cards: [
+			{
+				question: "Vad skyddas hjärnan av?",
+				answer: "Kraniet"
+			},
+			{
+				question: "I vilka kroppsdelar återfinns båtbenet?",
+				answer: "Fot och hand"
+			},
+			{
+				question: "Hur länge pågår (veckor) en normal graviditet?",
+				answer: "40"
+			},
+			{
+				question: "Vad är leukemi?",
+				answer: "Blodcancer"
+			},
+			{
+				question: "Vad heter pung på korrekt medicinspråk?",
+				answer: "Skrotum"
+			}
+		]
+	}
+];
+
+module.exports = categories;

@@ -1,0 +1,18 @@
+@import 'settings';
+
+.Scoreboard {
+	align-items: center;
+	background: $board-bg;
+	height: 110px;
+	display: flex;
+	flex-directon: row;
+	position: relative;
+}
+
+.Scoreboard-line {
+	color: yellow;
+	height: 15px;
+	position: absolute;
+	top: 20px;
+	width: 100%;
+}

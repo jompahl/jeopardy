@@ -1,0 +1,75 @@
+/*
+  Modal Overlay
+*/
+.Modal-overlay {
+  background:rgba(0,0,0,.8);
+  height: 100%;
+  left: 0;
+  display: flex;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  transition: opacity .2s;
+  width: 100%;
+  z-index: -1;
+}
+
+.Modal-overlay[aria-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.Modal-overlay[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.Modal-content {
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(100, 100, 100,.33);
+	box-sizing: border-box;
+	margin: auto;
+	max-width: 480px;
+	overflow: auto;
+	overflow-x: hidden;
+	padding: 13px;
+	position: relative;
+	transform: scale(.8);
+	transition: transform .3s;
+	width: 97%;
+}
+
+@media screen and (min-width: 600px) {
+	.Modal-content {
+		padding: 25px;
+	}
+}
+
+.Modal-overlay[aria-hidden="false"] .Modal-content {
+  transform: scale(1);
+}
+
+.Modal-closeButton {
+	background: none;
+	color: #666;
+	border: none;
+	cursor: pointer;
+	font-family: arial;
+	font-size: 2em;
+	font-weight: 800;
+	line-height: 1;
+	right: 15px;
+	outline: none;
+	padding: 0;
+	position: absolute;
+	top: .25em;
+	transition: all ease .2s;
+	z-index: 1000;
+
+	&:hover {
+		color: #c12f48;
+	}
+}
+

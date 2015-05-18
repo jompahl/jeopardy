@@ -1,0 +1,170 @@
+@import "settings";
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.wf-loading {
+    h1, h2, h3, h4, 
+    p, button, span {
+        visibility: hidden;
+    }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    font-variant-ligatures: common-ligatures;
+    height: 100%;
+	margin: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing-unit / 2;
+    margin-top: 0;
+}
+
+/**
+ * Images
+ */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: $spacing-unit;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+/**
+ * Links
+ */
+a {
+    color: $brand-color;
+    text-decoration: none;
+    transition: all .2s ease;
+
+    &:active {
+        color: darken($brand-color, 20%);
+    }
+
+    &:hover {
+        color: darken($brand-color, 15%);
+        text-decoration: none;
+    }
+}
+
+a:visited {
+    color: $brand-color;
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: $color-grey;
+    border-left: 4px solid $color-grey-light;
+    padding-left: $spacing-unit / 2;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $color-grey-light;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+button {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+strong {
+	font-weight: 500;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: scroll;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.wrap {
+	margin: 0 auto;
+	max-width: 800px;
+	width: 90%;
+}
+
+
+section > h1 {
+	margin: 1.4em 0 1em 0;
+	text-align: center;
+}
+
+.description {
+	margin: 1.2em 0;
+}
+
+.info {
+	margin-top: 1.4em;
+	margin-bottom: 0;
+}

@@ -1,0 +1,2 @@
+ var clips = [{"id":1,"clips":3,"whites":3,"blacks":0,"yellows":0,"greens":0,"turquoises":0,"amount":10.0},{"id":2,"clips":3,"whites":0,"blacks":3,"yellows":0,"greens":0,"turquoises":0,"amount":10.0},{"id":3,"clips":3,"whites":0,"blacks":0,"yellows":1,"greens":1,"turquoises":1,"amount":10.0}];
+ module.exports = clips;
