@@ -25,6 +25,7 @@ var CardBack = React.createClass({
 	closeCard: function(event) {
 		this.setState({closed: true});
 	},
+
 	_calcLeftTranslation: function() {
 		if (cardWidth == null) return 0;
 
@@ -63,9 +64,10 @@ var CardBack = React.createClass({
 		if (this.props.open && !this.state.closed) {
 			style = {
 				background: 'white',
-				left: translateLeft,
+				marginLeft: translateLeft,
 				marginTop: translateTop,
 				transform: 'scale(2)',
+				opacity: 1,
 				zIndex: '100'
 			};
 		}

@@ -1,13 +1,14 @@
 @import "settings";
 
-
 .CardBack {
 	position: absolute;
 	left: 0;
+	opacity: 0;
 	top: 0;
 	transform: scale(1);
-	transition: all 1.5s ease;
+	transition: margin 1s, transform 1.5s, ease;
 	width: 100%;
+	z-index: 0;
 
 	> * {
 		opacity: 1;
