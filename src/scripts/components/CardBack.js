@@ -82,20 +82,18 @@ var CardBack = React.createClass({
 	render: function() {
 		var classes = classnames({
           'CardBack': true,
-          // 'is-open': this.props.open && !this.state.closed,
           'is-closed': this.state.closed
         });
 
 		var styles = {
-			background: '#294486',
+			boxShadow: this.state.shadow,
+			height: '100%',
 			left: 0,
 			position: 'absolute',
 			top: 0,
-			transition: 'all 500ms ease',
 			transform: this.state.transform,
 			transformStyle: 'preserve-3d',
-			height: '100%',
-			boxShadow: this.state.shadow,
+			transition: 'all 500ms ease',
 			width: '100%',
 			zIndex: this.state.zIndex
 		};
