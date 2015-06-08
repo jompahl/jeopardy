@@ -36,10 +36,15 @@ var Card = React.createClass({
           'is-open': this.state.open
         });
 		
+		var cardBack;
+
+		if (this.state.open)
+			cardBack = <CardBack card={this.props.card} open={this.state.open} />;
+
 		return (
 			<div onClick={this._handleClick} className={classes}>
 				<div className="Card-front">${this.props.card.value}</div>
-				<CardBack card={this.props.card} open={this.state.open} />
+				{{cardBack}}
 			</div>
 		);
 	}

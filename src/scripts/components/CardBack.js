@@ -13,41 +13,70 @@ var cardWidth;
 var CardBack = React.createClass({
 	getInitialState: function() {
 		return {
-			closed: false
+			animateIn: false,
+			closed: false,
+			shadow: 'none',
+			transform: 'scale(1)',
+			zIndex: 1
 		};
 	},
 
 	componentDidMount: function () {
 		cardHeight = this.refs.CardBack.getDOMNode().offsetHeight;
 		cardWidth = this.refs.CardBack.getDOMNode().offsetWidth;
+		this.animateIn();
+	},
+
+	componentDidUpdate() {
+		if (this.state.animateIn) {
+			this.animateIn();
+			this.setState({animateIn: false});
+		}
 	},
 
 	closeCard: function(event) {
 		this.setState({closed: true});
+		this.animateOut();
 	},
 
 	_calcLeftTranslation: function() {
-		if (cardWidth == null) return 0;
-
 		var windowWidth = window.innerWidth;
+		var columnWidth = Math.ceil(windowWidth / 5);
 		var column = Math.ceil(this.props.card.id / 5);
-		var windowCenterH = windowWidth / 2;
-		var cardCenterH = cardWidth / 2;
-
-		return windowCenterH - cardCenterH - (cardWidth * (column - 1));
+		
+		return (3 - column) * columnWidth;
 	},
 
 	_calcTopTranslation: function() {
-		if (cardHeight == null) return 0;
-
-		var windowHeight = window.innerHeight;
+		var cardHeight = this.refs.CardBack.getDOMNode().offsetHeight;
 		var row = Math.round(this.props.card.id % 5);
-		if (row === 0) row = 5;
-		var windowCenterV = windowHeight / 2;
-		var cardCenterV = cardHeight / 2;
 
-		return windowCenterV - cardHeight - ((row - 1) * cardHeight / 2);
+		return (3 - (row === 0 ? 5 : row)) * cardHeight;
+	},
 
+	animateIn() {
+		if (this.state.closed) return;
+
+		var scale = 2.5;
+		var left = (this._calcLeftTranslation() / scale) + "px";
+		var top = (this._calcTopTranslation() / scale) + "px";
+		var transform = 'scale(' + scale + ')';
+		transform += ' translate(' + left + ', ' + top + ')';
+		transform += ' rotateY(180deg)';
+
+		this.setState({
+			transform: transform,
+			shadow: '0 4px 12px 0 rgba(0, 0, 0, .35)',
+			zIndex: 2
+		});
+	},
+
+	animateOut() {
+		this.setState({
+			transform:'scale(1)',
+			shadow: 'none',
+			zIndex: 1
+		});
 	},
 
 	render: function() {
@@ -57,23 +86,25 @@ var CardBack = React.createClass({
           'is-closed': this.state.closed
         });
 
-		var style = {};
-		var translateLeft = this._calcLeftTranslation();
-		var translateTop = this._calcTopTranslation();
-
-		if (this.props.open && !this.state.closed) {
-			style = {
-				background: 'white',
-				marginLeft: translateLeft,
-				marginTop: translateTop,
-				transform: 'scale(2)',
-				opacity: 1,
-				zIndex: '100'
-			};
-		}
+		var styles = {
+			background: '#294486',
+			left: 0,
+			position: 'absolute',
+			top: 0,
+			transition: 'all 500ms ease',
+			transform: this.state.transform,
+			transformStyle: 'preserve-3d',
+			height: '100%',
+			boxShadow: this.state.shadow,
+			width: '100%',
+			zIndex: this.state.zIndex
+		};
 
 		return (
-				<article className={classes} ref="CardBack" style={style}>
+			<div className={classes} ref="CardBack" style={styles}>
+				<div className="CardBack-front"></div>
+
+				<div className="CardBack-back">
 					<h1 className="CardBack-category">
 						{this.props.card.category} 
 						<span className="CardBack-value"> – ${this.props.card.value} </span>
@@ -85,7 +116,8 @@ var CardBack = React.createClass({
 
 					<button onClick={this.closeCard} className="CardBack-close">Close</button>
 					<button onClick={this.closeCard} className="CardBack-showAnswer">Show answer</button>
-				</article>
+				</div>
+			</div>
 		);
 	}
 });

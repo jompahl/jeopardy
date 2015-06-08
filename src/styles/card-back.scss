@@ -1,38 +1,24 @@
 @import "settings";
 
-.CardBack {
-	position: absolute;
-	left: 0;
-	opacity: 0;
-	top: 0;
-	transform: scale(1);
-	transition: margin 1s, transform 1.5s, ease;
-	width: 100%;
-	z-index: 0;
-
-	> * {
-		opacity: 1;
-	}
-}
-
-.CardBack.is-open {
-	background: white;
-	height: 50px;
-	transform: scale(2);
-	margin-left: 100%;
-	z-index: 1000;
-
-	> * {
-		opacity: 1;
-	}
-}
-
 .CardBack-category {
-	background: #AEBADB;
 	color: black;
 	margin: 0;
-	line-height: 90px;
+	font-size: 8px;
+	line-height: 12px;
 	text-transform: uppercase;
+}
+
+.CardBack-front {
+	backface-visibility: hidden;
+	transform: rotateY(0deg);
+	z-index: 3;
+}
+
+.CardBack-back {
+	backface-visibility: hidden;
+	background: white;
+	height: 100%;
+	transform: rotateY(180deg);
 }
 
 .CardBack-value {
@@ -40,8 +26,7 @@
 }
 
 .CardBack-question {
-	background: white;
-	font-size: 22px;
+	font-size: 11px;
 	margin: 0;
 }
 
@@ -56,4 +41,8 @@
 	right: 20px;
 	outline: 0;
 	z-index: 1000000;
+
+	&:hover {
+		cursor: pointer;
+	}
 }
