@@ -28,7 +28,8 @@ function init() {
 				category: category.title,
 				question: card.question,
 				answer: card.answer,
-				picked: false
+				picked: false,
+				wasCorrect: null
 			});
 		});
 	});

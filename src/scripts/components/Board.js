@@ -8,8 +8,15 @@ require('styles/board.scss');
 var Board = React.createClass({
 
 	render: function() {
+		var players = this.props.players;
 		var cards = this.props.cards.map(function (card, index) {
-			return <Card card={card} key={index} />;
+			return (
+				<Card 
+					card={card} 
+					players={players} 
+					key={index} 
+				/>
+			);
 		});
 
 		var columns = [];

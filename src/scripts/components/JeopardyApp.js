@@ -33,7 +33,12 @@ var JeopardyApp = React.createClass({
 		return (
 			<div className="Jeopardy">
 				<CategoryRow categories={this.state.cards.categories} />
-				<Board cards={this.state.cards.cards} />
+
+				<Board 
+					cards={this.state.cards.cards} 
+					players={this.state.players.players} 
+				/>
+
 				<Scoreboard players={this.state.players.players} />
 			</div>
 		);

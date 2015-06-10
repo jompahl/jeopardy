@@ -1,0 +1,41 @@
+@import "colors";
+@import "init/utilities";
+
+.Question {
+	background: #fafafa;
+	height: 100%;
+	display: flex;
+	flex-wrap: no-wrap;
+	flex-direction: column;
+	overflow: hidden;
+	text-align: center;
+}
+
+.Question-header {
+	@extend .u-group;
+	border-bottom: 1px solid #ddd;
+	font-size: 8px;
+	font-weight: 100;
+	margin: 0 auto;
+	padding: 15px 0;
+	text-transform: uppercase;
+	width: 85%;
+
+	h1 {
+		margin: 0;
+	}
+}
+
+.Question-question {
+	align-items: center;
+	display: flex;
+	flex: 1;
+	margin: 0 auto;
+	width: 85%;
+	
+	p {
+		font-size: 26px;
+		margin: 0 auto;
+	}
+}
+

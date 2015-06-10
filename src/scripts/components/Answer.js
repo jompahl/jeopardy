@@ -1,24 +1,20 @@
 'use strict';
 
 var React = require('react');
+var classNames = require('classnames');
 
 var Answer = React.createClass({
-	getInitialState: function() {
-		return {
-			show: false
-		};
-	},
-	showAnwer: function(event) {
-		this.setState({show: true});
-	},
 	render: function() {
-		if (this.state.show) {
-			return (
-				<div className="CardBack-answer">Answer: {this.props.answer}</div>
-			);
-		} else {
-			return <span></span>;
-		}
+
+		var styles = classNames({
+			'CardBack-answer': true,
+			'wasCorrect': this.props.wasCorrect,
+			'wasIncorrect': !this.props.wasCorrect
+		});
+
+		return (
+			<div className={styles}>Answer: {this.props.answer}</div>
+		);
 	}
 
 });

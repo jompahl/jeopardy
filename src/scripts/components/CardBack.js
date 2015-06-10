@@ -2,13 +2,10 @@
 
 var React = require('react');
 var classnames = require('classnames');
-var AnswerBoard = require('./AnswerBoard');
+var Question = require('./Question');
 var Answer = require('./Answer');
 
 require('styles/card-back.scss');
-
-var cardHeight;
-var cardWidth;
 
 var CardBack = React.createClass({
 	getInitialState: function() {
@@ -22,8 +19,6 @@ var CardBack = React.createClass({
 	},
 
 	componentDidMount: function () {
-		cardHeight = this.refs.CardBack.getDOMNode().offsetHeight;
-		cardWidth = this.refs.CardBack.getDOMNode().offsetWidth;
 		this.animateIn();
 	},
 
@@ -57,7 +52,7 @@ var CardBack = React.createClass({
 	animateIn() {
 		if (this.state.closed) return;
 
-		var scale = 2.5;
+		var scale = 3;
 		var left = (this._calcLeftTranslation() / scale) + "px";
 		var top = (this._calcTopTranslation() / scale) + "px";
 		var transform = 'scale(' + scale + ')';
@@ -98,23 +93,28 @@ var CardBack = React.createClass({
 			zIndex: this.state.zIndex
 		};
 
+		var wasCorrect = this.props.card.wasCorrect;
+
+		var question = (
+			<Question
+				card={this.props.card}
+				players={this.props.players}
+			/>
+		);
+
+		var answer = (
+			<Answer 
+				answer={this.props.card.answer} 
+				wasCorrect={wasCorrect} 
+			/>
+		);
+
+		var content = (wasCorrect === null) ? question : answer;
+
 		return (
 			<div className={classes} ref="CardBack" style={styles}>
 				<div className="CardBack-front"></div>
-
-				<div className="CardBack-back">
-					<h1 className="CardBack-category">
-						{this.props.card.category} 
-						<span className="CardBack-value"> – ${this.props.card.value} </span>
-					</h1>
-
-					<p className="CardBack-question">{this.props.card.question}</p>
-
-					<Answer answer={this.props.card.answer} />
-
-					<button onClick={this.closeCard} className="CardBack-close">Close</button>
-					<button onClick={this.closeCard} className="CardBack-showAnswer">Show answer</button>
-				</div>
+				<div className="CardBack-content">{content}</div>
 			</div>
 		);
 	}

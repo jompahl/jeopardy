@@ -38,12 +38,20 @@ var Card = React.createClass({
 		
 		var cardBack;
 
-		if (this.state.open)
-			cardBack = <CardBack card={this.props.card} open={this.state.open} />;
+		if (this.state.open) {
+			cardBack = (
+				<CardBack 
+					card={this.props.card} 
+					players={this.props.players} 
+				/>
+			);
+		}
 
 		return (
 			<div onClick={this._handleClick} className={classes}>
-				<div className="Card-front">${this.props.card.value}</div>
+				<div className="Card-front">
+					${this.props.card.value}
+				</div>
 				{{cardBack}}
 			</div>
 		);
