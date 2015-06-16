@@ -9,11 +9,12 @@ var Board = React.createClass({
 
 	render: function() {
 		var players = this.props.players;
-		var cards = this.props.cards.map(function (card, index) {
+		var openCard = this.props.cards.openCard;
+		var cards = this.props.cards.cards.map(function (card, index) {
 			return (
 				<Card 
 					card={card} 
-					players={players} 
+					openCard={openCard} 
 					key={index} 
 				/>
 			);

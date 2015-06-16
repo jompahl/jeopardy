@@ -31,6 +31,7 @@ module.exports = {
     extensions: ['', '.js', '.scss'],
     alias: {
       'styles': __dirname + '/src/styles',
+      'svg': __dirname + '/src/svg',
       'mixins': __dirname + '/src/scripts/mixins',
       'components': __dirname + '/src/scripts/components',
       'stores': __dirname + '/src/scripts/stores',
@@ -57,8 +58,11 @@ module.exports = {
       test: /\.css$/,
 	  loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version", "Firefox 15"]}'
     }, {
-      test: /\.(png|jpg)$/,
-      loader: 'url-loader?limit=8192'
+		test: /\.(jpe?g|png|gif|svg)$/i,
+		loaders: [
+			'file?hash=sha512&digest=hex&name=[hash].[ext]',
+			'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+		]
     }]
   },
 

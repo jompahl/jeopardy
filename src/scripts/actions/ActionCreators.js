@@ -10,6 +10,20 @@ var ActionCreators = {
 			card: card
 		});
     },
+
+    hideCard: function(card) {
+		AppDispatcher.handleViewAction({
+			type: ActionTypes.HIDE_CARD,
+			card: card
+		});
+    },
+
+    registerAnswer: function(correct) {
+		AppDispatcher.handleViewAction({
+			type: ActionTypes.REGISTER_ANSWER,
+			correct: correct
+		});
+    },
 };
 
 module.exports = ActionCreators;

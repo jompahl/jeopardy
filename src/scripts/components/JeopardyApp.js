@@ -16,16 +16,31 @@ var data = require('questions/andy.json');
 require('styles/init/base.scss');
 require('styles/main.scss');
 
+function getStateFromStores() {
+	return {
+		cards: CardStore.getState(),
+		players: PlayerStore.getState()
+	};
+}
+
 var JeopardyApp = React.createClass({
-	getStatesFromStores: function() {
-		return {
-			cards: CardStore.getState(),
-			players: PlayerStore.getState()
-		};
-	},
 
 	getInitialState: function() {
-		return this.getStatesFromStores();
+		return getStateFromStores();
+	},
+
+	componentDidMount: function() {
+		CardStore.addChangeListener(this._onChange);
+		PlayerStore.addChangeListener(this._onChange);
+	},
+
+	componentWillUnmount: function() {
+		CardStore.removeChangeListener(this._onChange);
+		PlayerStore.removeChangeListener(this._onChange);
+	},
+
+	_onChange: function() {
+		this.setState(getStateFromStores());
 	},
 
 	render: function() {
@@ -34,12 +49,12 @@ var JeopardyApp = React.createClass({
 			<div className="Jeopardy">
 				<CategoryRow categories={this.state.cards.categories} />
 
-				<Board 
-					cards={this.state.cards.cards} 
+				<Board cards={this.state.cards} />
+
+				<Scoreboard 
+					cards={this.state.cards} 
 					players={this.state.players.players} 
 				/>
-
-				<Scoreboard players={this.state.players.players} />
 			</div>
 		);
 	}

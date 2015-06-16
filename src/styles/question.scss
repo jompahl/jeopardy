@@ -9,6 +9,10 @@
 	flex-direction: column;
 	overflow: hidden;
 	text-align: center;
+
+	&:hover {
+		cursor: default;
+	}
 }
 
 .Question-header {
@@ -34,7 +38,7 @@
 	width: 85%;
 	
 	p {
-		font-size: 26px;
+		font-size: 24px;
 		margin: 0 auto;
 	}
 }

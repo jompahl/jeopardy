@@ -8,49 +8,47 @@ var ActionCreators = require('actions/ActionCreators');
 require('styles/card.scss');
 
 var Card = React.createClass({
-	getInitialState: function() {
-		return {
-			picked: false,
-			open: false
-		};
+	propTypes: {
+		card: React.PropTypes.shape({
+			id: React.PropTypes.number,
+			value: React.PropTypes.number,
+			category: React.PropTypes.string,
+			question: React.PropTypes.string,
+			answer: React.PropTypes.string,
+			picked: React.PropTypes.bool,
+			wasCorrect: React.PropTypes.bool
+		}),
+		openCard: React.PropTypes.number
 	},
 
 	_handleClick: function(event) {
-		var card = {};
-		if (card.picked) return;
-		ActionCreators.showCard(card);
-		
-		if (this.state.picked) {
-			return;
-		}
-		this.setState({
-			picked: true,
-			open: true
-		});
+		if (!this.props.card.picked && !this.props.openCard)
+			ActionCreators.showCard(this.props.card);
+	},
+
+	_isOpen: function() {
+		return this.props.openCard === this.props.card.id;
 	},
 
 	render: function() {
 		var classes = classnames({
           'Card': true,
-          'is-picked': this.state.picked,
-          'is-open': this.state.open
+          'is-picked': this.props.card.picked,
+          'is-open': this._isOpen()
         });
 		
 		var cardBack;
 
-		if (this.state.open) {
+		if (this._isOpen()) {
 			cardBack = (
-				<CardBack 
-					card={this.props.card} 
-					players={this.props.players} 
-				/>
+				<CardBack card={this.props.card} />
 			);
 		}
 
 		return (
 			<div onClick={this._handleClick} className={classes}>
 				<div className="Card-front">
-					${this.props.card.value}
+					{this.props.card.value}
 				</div>
 				{{cardBack}}
 			</div>

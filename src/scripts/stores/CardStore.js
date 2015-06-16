@@ -12,6 +12,7 @@ var _MULTIPLIER = _ROUND * 100;
 var _data = require('questions/andy.json');
 var _categories = [];
 var _cards = [];
+var _openCard = 0;
 
 function init() {
 	_categories = _data.map(function(category) {
@@ -35,13 +36,23 @@ function init() {
 	});
 }
 
-var QuestionStore = assign({}, EventEmitter.prototype, {
+function showCard(card) {
+	_cards[card.id - 1].picked = true;
+	_openCard = card.id;
+}
+
+function hideCard() {
+	_openCard = 0;
+}
+
+var CardStore = assign({}, EventEmitter.prototype, {
 	getState: function() {
 		if (_categories.length === 0 || _cards.length === 0) init();
 
 		return {
 			categories: _categories,
 			cards: _cards,
+			openCard: _openCard,
 		};
 	},
 
@@ -58,17 +69,25 @@ var QuestionStore = assign({}, EventEmitter.prototype, {
 	},
 });
 
-QuestionStore.appDispatch = AppDispatcher.register(function(payload) {
+CardStore.appDispatch = AppDispatcher.register(function(payload) {
 	var source = payload.source;
 	var action = payload.action;
 
 	switch(action.type) {
+		case ActionTypes.SHOW_CARD:
+			showCard(action.card);
+			break;
+
+		case ActionTypes.REGISTER_ANSWER:
+			hideCard();
+			break;
+
 		default:
 			return true;
 	}
 
-	QuestionStore.emitChange();
+	CardStore.emitChange();
 	return true;
 });
 
-module.exports = QuestionStore;
+module.exports = CardStore;

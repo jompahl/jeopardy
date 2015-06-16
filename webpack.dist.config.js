@@ -36,10 +36,14 @@ module.exports = {
     extensions: ['', '.js'],
     alias: {
       'styles': __dirname + '/src/styles',
+      'svg': __dirname + '/src/svg',
       'mixins': __dirname + '/src/scripts/mixins',
-      'components': __dirname + '/src/scripts/components/',
-      'stores': __dirname + '/src/scripts/stores/',
-      'actions': __dirname + '/src/scripts/actions/'
+      'components': __dirname + '/src/scripts/components',
+      'stores': __dirname + '/src/scripts/stores',
+      'dispatcher': __dirname + '/src/scripts/dispatcher',
+      'actions': __dirname + '/src/scripts/actions',
+      'questions': __dirname + '/src/questions',
+      'constants': __dirname + '/src/scripts/constants'
     }
   },
 

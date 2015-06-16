@@ -6,13 +6,19 @@ var React = require('react'),
 require('styles/scoreboard.scss');
 
 var Scoreboard = React.createClass({
+	propTypes: {
+		cards: React.PropTypes.object,
+		players: React.PropTypes.array
+	},
 
 	render: function() {
+		var cards = this.props.cards;
 		var players = this.props.players.map(function(player) {
 			return (
 				<Player 
 					name={player.name} 
 					score={player.score} 
+					cards={cards}
 					key={player.name}
 				/>
 			);

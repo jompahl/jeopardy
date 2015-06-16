@@ -3,6 +3,7 @@
 .Player {
 	flex: 1;
 	margin-right: 10px;
+	position: relative;
 	text-align: center;
 
 	&:first-of-type {
@@ -11,19 +12,16 @@
 }
 
 .Player-screen {
-	background: white;
 	min-width: 120px;
-	max-width: 200px;
+	max-width: 500px;
 	margin: 0 auto;
+	position: relative;
 	width: 80%;
 }
 
 .Player-name {
 	background: #4667C5;
 	color: white;
-	font-family: "Gloria Hallelujah";
-	font-family: "Indie Flower";
-	font-family: "Rock Salt";
 	padding: 5px 0;
 }
 
@@ -34,4 +32,23 @@
 	font-weight: 600;
 	height: 40px;
 	line-height: 40px;
+}
+
+.Player-controls {
+	position: absolute;
+	top: 0;
+	width: 100%;
+
+	.ButtonCorrect {
+		float: left;
+		left: -35px;
+		position: relative;
+	}
+
+	.ButtonIncorrect {
+		float: right;
+		position: relative;
+		right: -35px;
+	}
+
 }

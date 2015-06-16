@@ -23,6 +23,10 @@ function initPlayers() {
 	});
 }
 
+function registerAnswer(correct) {
+
+}
+
 var PlayerStore = assign({}, EventEmitter.prototype, {
 
 	getState: function() {
@@ -51,6 +55,10 @@ PlayerStore.appDispatch = AppDispatcher.register(function(payload) {
 	var action = payload.action;
 
 	switch(action.type) {
+		case ActionTypes.REGISTER_ANSWER:
+			registerAnswer(action.correct);
+			break;
+
 		default:
 			return true;
 	}
