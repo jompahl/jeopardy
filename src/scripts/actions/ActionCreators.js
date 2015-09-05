@@ -18,10 +18,11 @@ var ActionCreators = {
 		});
     },
 
-    registerAnswer: function(correct) {
+    registerAnswer: function(correct, value) {
 		AppDispatcher.handleViewAction({
 			type: ActionTypes.REGISTER_ANSWER,
-			correct: correct
+            correct: correct,
+            value: value
 		});
     },
 };

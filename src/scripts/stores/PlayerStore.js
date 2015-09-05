@@ -6,7 +6,7 @@ var ActionTypes = require('../constants/ActionTypes');
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
-var _playerNames = ["Tobias", "Johan", "John", "Gurra"];
+var _playerNames = ["Arvid", "John", "Olle", "Johan", "Joel"];
 var _players = [];
 
 function initPlayers() {
@@ -23,8 +23,11 @@ function initPlayers() {
 	});
 }
 
-function registerAnswer(correct) {
-
+function registerAnswer(playerId, value) {
+    var player = _players[playerId - 1];
+    console.log(player.score);
+    console.log(value);
+    player.score += value;
 }
 
 var PlayerStore = assign({}, EventEmitter.prototype, {
@@ -56,7 +59,7 @@ PlayerStore.appDispatch = AppDispatcher.register(function(payload) {
 
 	switch(action.type) {
 		case ActionTypes.REGISTER_ANSWER:
-			registerAnswer(action.correct);
+			registerAnswer(action.correct, action.value);
 			break;
 
 		default:

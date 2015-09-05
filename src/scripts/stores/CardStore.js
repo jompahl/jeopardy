@@ -9,7 +9,7 @@ var _CHANGE_EVENT = 'change';
 var _ROUND = 1;
 var _MULTIPLIER = _ROUND * 100;
 
-var _data = require('questions/andy.json');
+var _data = require('questions/new.js');
 var _categories = [];
 var _cards = [];
 var _openCard = 0;

@@ -17,7 +17,6 @@
 
 .Question-header {
 	@extend .u-group;
-	border-bottom: 1px solid #ddd;
 	font-size: 8px;
 	font-weight: 100;
 	margin: 0 auto;
@@ -35,10 +34,12 @@
 	display: flex;
 	flex: 1;
 	margin: 0 auto;
+    position: relative;
+    top: -15px;
 	width: 85%;
 	
 	p {
-		font-size: 24px;
+		font-size: 18px;
 		margin: 0 auto;
 	}
 }

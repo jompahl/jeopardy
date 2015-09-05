@@ -16,6 +16,7 @@ var Scoreboard = React.createClass({
 		var players = this.props.players.map(function(player) {
 			return (
 				<Player 
+					player={player} 
 					name={player.name} 
 					score={player.score} 
 					cards={cards}

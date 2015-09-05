@@ -10,7 +10,6 @@ var PlayerStore = require('stores/PlayerStore.js');
 var Board = require('./Board');
 var Scoreboard = require('./Scoreboard');
 var CategoryRow = require('./CategoryRow');
-var data = require('questions/andy.json');
 
 // Styles
 require('styles/init/base.scss');

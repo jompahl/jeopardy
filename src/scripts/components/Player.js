@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react');
+var Sound = require('./Sound');
 var ActionCreators = require('actions/ActionCreators');
 
 require('styles/player.scss');
@@ -20,12 +21,25 @@ var Player = React.createClass({
 		};
 	},
 
+    componentDidMount() {
+        var audio = this.getDOMNode(this.refs.audioWrong);
+    },
+    
+    handleAnswer: function(correct) {
+        var cardId = this.props.cards.openCard;
+        var card = this.props.cards.cards[cardId - 1];
+        var value = correct ? card.value : -(card.value);
+
+        ActionCreators
+        .registerAnswer(this.props.player.id, value);
+    },
+
 	_handleCorrectAnswer: function() {
-		ActionCreators.registerAnswer(true);
+        this.handleAnswer(true);
 	},
 
 	_handleIncorrectAnswer: function() {
-		ActionCreators.registerAnswer(false);
+        this.handleAnswer(false);
 	},
 
 	render: function() {
@@ -34,6 +48,7 @@ var Player = React.createClass({
 		if (this.props.cards.openCard) {
 			controls = (
 					<div className="Player-controls">
+
 						<button 
 							className="ButtonCorrect"
 							onClick={this._handleCorrectAnswer}
@@ -51,14 +66,20 @@ var Player = React.createClass({
 			);
 		}
 
+        var player = this.props.player;
+        var audio = 'gun.mp3';
+
 		return (
 			<div className="Player">
 				<div className="Player-screen">
-					<div className="Player-score">{this.props.score}</div>
-					<div className="Player-name">{this.props.name}</div>
+					<div className="Player-score">{player.score}</div>
+					<div className="Player-name">{player.name}</div>
 					{controls}
 				</div>
 
+                <audio ref="audioWrong" aria-hidden="true" preload>
+                    <source src="gun.mp3" type="audio/mpeg" />
+                </audio>
 			</div>
 		);
 	}
