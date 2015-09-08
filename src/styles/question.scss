@@ -15,6 +15,13 @@
 	}
 }
 
+.Question-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+}
+
 .Question-header {
 	@extend .u-group;
 	font-size: 8px;

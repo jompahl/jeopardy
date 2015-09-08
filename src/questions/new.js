@@ -53,11 +53,11 @@ var categories = [
 		title: "Film",
 		cards: [
 			{
-				question: "Vem spelar Commodus i Gladiator?",
-				answer: "Joaquin Phoenix"
+				question: "Vad kallas karaktärerna i Top Gun?",
+				answer: "Goose och Maverick"
 			},
 			{
-				question: "Vem har regisserat filmen The Social Network?",
+				question: "Vem har regisserat filmen se7en?",
 				answer: "David Fincher"
 			},
 			{

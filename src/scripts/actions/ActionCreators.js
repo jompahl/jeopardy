@@ -12,6 +12,7 @@ var ActionCreators = {
     },
 
     hideCard: function(card) {
+        console.log("close");
 		AppDispatcher.handleViewAction({
 			type: ActionTypes.HIDE_CARD,
 			card: card

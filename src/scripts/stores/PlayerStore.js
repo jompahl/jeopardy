@@ -6,7 +6,7 @@ var ActionTypes = require('../constants/ActionTypes');
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
-var _playerNames = ["Arvid", "John", "Olle", "Johan", "Joel"];
+var _playerNames = ["Arvid", "Olle", "Tobbe", "Joel"];
 var _players = [];
 
 function initPlayers() {

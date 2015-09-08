@@ -5,12 +5,17 @@ var classNames = require('classnames');
 var AnswerBoard = require('./AnswerBoard');
 
 require('styles/question.scss');
+var ActionCreators = require('actions/ActionCreators');
 
 var Question = React.createClass({
-	render: function() {
+    closeQuestion: function(e) {
+        ActionCreators.hideCard(this.props.card);
+    },
 
+	render: function() {
 		return (
 			<div className="Question">
+                <button onClick={this.closeQuestion} className="Question-close">X</button>
 				<header className="Question-header">
 					<h1 className="Question-category">
 						{this.props.card.category} | {this.props.card.value} 

@@ -76,10 +76,6 @@ var Player = React.createClass({
 					<div className="Player-name">{player.name}</div>
 					{controls}
 				</div>
-
-                <audio ref="audioWrong" aria-hidden="true" preload>
-                    <source src="gun.mp3" type="audio/mpeg" />
-                </audio>
 			</div>
 		);
 	}

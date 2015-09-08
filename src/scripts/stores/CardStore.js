@@ -9,7 +9,7 @@ var _CHANGE_EVENT = 'change';
 var _ROUND = 1;
 var _MULTIPLIER = _ROUND * 100;
 
-var _data = require('questions/new.js');
+var _data = require('questions/jojje.js');
 var _categories = [];
 var _cards = [];
 var _openCard = 0;
@@ -79,6 +79,8 @@ CardStore.appDispatch = AppDispatcher.register(function(payload) {
 			break;
 
 		case ActionTypes.REGISTER_ANSWER:
+		case ActionTypes.HIDE_CARD:
+
 			hideCard();
 			break;
 
